@@ -1,47 +1,55 @@
 plugins {
-    id 'java'
-    id 'io.freefair.lombok' version '8.1.0'
-    id 'io.quarkus'
+  id 'java'
+  id 'idea'
+  id 'io.freefair.lombok' version '8.1.0'
+  id 'io.quarkus'
 }
 
 repositories {
-    mavenCentral()
-    mavenLocal()
+  mavenCentral()
+  mavenLocal()
 }
 
 ext {
-    mapstructVersion = "1.5.5.Final"
+  mapstructVersion = "1.5.5.Final"
 }
 dependencies {
-    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-resteasy-jackson'
-    implementation 'io.quarkus:quarkus-jdbc-mysql'
-    implementation 'org.mapstruct:mapstruct'
-    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
-    implementation("io.quarkus:quarkus-hibernate-orm-panache")
-    implementation 'io.quarkus:quarkus-arc'
-    annotationProcessor("io.quarkus:quarkus-panache-common")
-    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
-    testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:rest-assured'
+  implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+  implementation("io.quarkus:quarkus-flyway")
+  implementation("org.flywaydb:flyway-mysql")
+  implementation("io.quarkus:quarkus-arc")
+  implementation("io.quarkus:quarkus-resteasy-jackson")
+  implementation("io.quarkus:quarkus-smallrye-openapi")
+
+  implementation("org.mapstruct:mapstruct:${mapstructVersion}")
+  annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+
+  annotationProcessor("io.quarkus:quarkus-panache-common")
+
+  implementation("io.quarkus:quarkus-hibernate-orm-panache")
+  implementation("io.quarkus:quarkus-jdbc-mysql")
+
+
+  testImplementation("io.quarkus:quarkus-junit5")
+  testImplementation("io.rest-assured:rest-assured")
 }
 
 group 'huper.digital'
 version '1.0.0-SNAPSHOT'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
 }
 
 test {
-    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+  systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
 }
 compileJava {
-    options.encoding = 'UTF-8'
-    options.compilerArgs << '-parameters'
+  options.encoding = 'UTF-8'
+  options.compilerArgs << '-parameters'
 }
 
 compileTestJava {
-    options.encoding = 'UTF-8'
+  options.encoding = 'UTF-8'
 }
