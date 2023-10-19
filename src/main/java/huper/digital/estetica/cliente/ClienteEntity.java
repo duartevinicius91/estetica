@@ -1,4 +1,4 @@
-package huper.digital.estetica.cliente.entity;
+package huper.digital.estetica.cliente;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Data
 public class ClienteEntity {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String nome;
   private String telefone;

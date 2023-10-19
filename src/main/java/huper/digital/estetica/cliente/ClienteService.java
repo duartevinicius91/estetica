@@ -1,7 +1,5 @@
-package huper.digital.estetica.cliente.service;
+package huper.digital.estetica.cliente;
 
-import huper.digital.estetica.cliente.entity.ClienteEntity;
-import huper.digital.estetica.cliente.repository.ClienteRepository;
 import io.quarkus.panache.common.Page;
 import jakarta.enterprise.context.ApplicationScoped;
 
