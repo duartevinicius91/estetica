@@ -13,6 +13,14 @@ services:
     volumes:
       - db:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  localstack:
+    image: localstack/localstack
+    environment:
+      - SERVICES=s3,sqs,cognito
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    ports:
+      - "4572:4572" # s3
+      - "4576:4576" # sqs
 volumes:
   db:
     driver: local
