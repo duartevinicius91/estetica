@@ -1,4 +1,4 @@
-package huper.digital.estetica.cliente;
+package huper.digital.beautysalon.cliente;
 
 import java.time.LocalDate;
 

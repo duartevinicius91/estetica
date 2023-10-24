@@ -1,26 +1,40 @@
 version: '3.8'
+
 services:
+  # MySQL
   mysql:
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE
-    restart: always
+    image: mysql:latest
+    container_name: mysql
     environment:
-      - MYSQL_DATABASE=quotes
-      - MYSQL_ROOT_PASSWORD=mauFJcuf5dhRMQrjj
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - '3306:3306'
-    volumes:
-      - db:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-  localstack:
-    image: localstack/localstack
+      - "3306:3306"  # Expose a porta do MySQL
+
+  # Keycloak
+  keycloak:
+    image: jboss/keycloak:latest
+    container_name: keycloak
     environment:
-      - SERVICES=s3,sqs,cognito
-      - DOCKER_HOST=unix:///var/run/docker.sock
+      KEYCLOAK_USER: ${KEYCLOAK_USER}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
     ports:
-      - "4572:4572" # s3
-      - "4576:4576" # sqs
-volumes:
-  db:
-    driver: local
+      - "8080:8080"  # Expor a porta do Keycloak
+
+  # Aplicativo Quarkus com integração Keycloak via OIDC
+#  quarkus-app:
+#    image: your-quarkus-app-image:latest  # Substitua pelo nome da imagem do seu aplicativo
+#    container_name: quarkus-app
+#    ports:
+#      - "8081:8081"  # Expor a porta do seu aplicativo Quarkus
+#    environment:
+#      QUARKUS_OIDC_AUTH-server-url: ${QUARKUS_OIDC_AUTH-server-url}
+#      QUARKUS_OIDC_AUTH-client-id: ${QUARKUS_OIDC_AUTH-client-id}
+#      QUARKUS_OIDC_AUTH-client-secret: ${QUARKUS_OIDC_AUTH-client-secret}
+#      QUARKUS_DATASOURCE_URL: ${QUARKUS_DATASOURCE_URL}
+#      QUARKUS_DATASOURCE_DRIVER: ${QUARKUS_DATASOURCE_DRIVER}
+#      QUARKUS_DATASOURCE_USERNAME: ${QUARKUS_DATASOURCE_USERNAME}
+#      QUARKUS_DATASOURCE_PASSWORD: ${QUARKUS_DATASOURCE_PASSWORD}
+#      QUARKUS_HTTP_PORT: ${QUARKUS_HTTP_PORT}
+#    depends_on:
+#      - keycloak  # Aguardar o Keycloak estar pronto antes de iniciar o aplicativo

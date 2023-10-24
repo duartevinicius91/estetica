@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/estetica.iml" filepath="$PROJECT_DIR$/.idea/estetica.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estetica.integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/estetica.integrationTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estetica.main.iml" filepath="$PROJECT_DIR$/.idea/modules/estetica.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estetica.native-test.iml" filepath="$PROJECT_DIR$/.idea/modules/estetica.native-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estetica.quarkus-generated-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/estetica.quarkus-generated-sources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estetica.quarkus-test-generated-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/estetica.quarkus-test-generated-sources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/estetica.test.iml" filepath="$PROJECT_DIR$/.idea/modules/estetica.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.integrationTest.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.integrationTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.main.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.native-test.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.native-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.quarkus-generated-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.quarkus-generated-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.quarkus-test-generated-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.quarkus-test-generated-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beautysalon.test.iml" filepath="$PROJECT_DIR$/.idea/modules/beautysalon.test.iml" />
     </modules>
   </component>
 </project>

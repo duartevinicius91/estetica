@@ -1,4 +1,4 @@
-package huper.digital.estetica.servico;
+package huper.digital.beautysalon.servico;
 
 import java.math.BigDecimal;
 
