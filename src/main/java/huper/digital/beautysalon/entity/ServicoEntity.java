@@ -1,4 +1,4 @@
-package huper.digital.beautysalon.cliente;
+package huper.digital.beautysalon.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,6 +15,4 @@ public class ServicoEntity {
   private Long id;
   private String nome;
   private BigDecimal valor;
-  private String email;
-  private LocalDate nascimento;
 }

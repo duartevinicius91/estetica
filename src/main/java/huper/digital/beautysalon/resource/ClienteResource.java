@@ -1,7 +1,8 @@
-package huper.digital.beautysalon.cliente;
+package huper.digital.beautysalon.resource;
 
+import huper.digital.beautysalon.service.ClienteService;
+import huper.digital.beautysalon.entity.ClienteEntity;
 import io.quarkus.panache.common.Page;
-import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -17,13 +18,17 @@ import java.util.UUID;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ClienteResource {
 
-    @Inject
-    ClienteService resource;
+
+    private final ClienteService service;
+
+    public ClienteResource(ClienteService service) {
+        this.service = service;
+    }
 
     @GET
     @Path("{id}")
     public ClienteEntity get(@PathParam("id") Long id){
-        ClienteEntity clienteEntity = resource.get(id);
+        ClienteEntity clienteEntity = service.get(id);
         if (clienteEntity == null) {
             throw new WebApplicationException(404);
         }
@@ -33,13 +38,13 @@ public class ClienteResource {
     @GET
     public List<ClienteEntity> list(@QueryParam("page") @DefaultValue("0") int pageIndex,
                                      @QueryParam("size") @DefaultValue("20") int pageSize) {
-        return resource.list(Page.of(pageIndex, pageSize));
+        return service.list(Page.of(pageIndex, pageSize));
     }
 
     @Transactional
     @POST
     public ClienteEntity add(ClienteEntity newCliente) {
-        return resource.add(newCliente);
+        return service.add(newCliente);
     }
 
     public static final String HTML = """

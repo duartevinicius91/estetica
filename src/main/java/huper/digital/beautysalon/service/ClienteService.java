@@ -1,5 +1,7 @@
-package huper.digital.beautysalon.cliente;
+package huper.digital.beautysalon.service;
 
+import huper.digital.beautysalon.entity.ClienteEntity;
+import huper.digital.beautysalon.repository.ClienteRepository;
 import io.quarkus.panache.common.Page;
 import jakarta.enterprise.context.ApplicationScoped;
 

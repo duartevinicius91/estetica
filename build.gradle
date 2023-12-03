@@ -24,9 +24,11 @@ dependencies {
   implementation("org.mapstruct:mapstruct:${mapstructVersion}")
   annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
 
-  annotationProcessor("io.quarkus:quarkus-panache-common")
+//  annotationProcessor("io.quarkus:quarkus-panache-common")
+// https://mvnrepository.com/artifact/com.google.api-client/google-api-client
+  implementation 'com.google.api-client:google-api-client:2.2.0'
 
-  implementation("io.quarkus:quarkus-hibernate-orm-panache")
+  implementation("io.quarkus:quarkus-hibernate-orm-rest-data-panache")
   implementation("io.quarkus:quarkus-jdbc-mysql")
 
 

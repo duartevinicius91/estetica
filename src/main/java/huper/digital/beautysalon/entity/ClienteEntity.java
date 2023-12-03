@@ -1,4 +1,4 @@
-package huper.digital.beautysalon.cliente;
+package huper.digital.beautysalon.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
